@@ -1,7 +1,7 @@
 # TripadAdvisor_Euro-Restaurants
 Data Analytics on Tripadvisor European Cities dataset. This project is associated to the Udacity Project "Write A Data Science Blog Post". It uses the "TripAdvisor Restaurants Info for 31 Euro-Cities"-dataset, which can be downloaded at: https://www.kaggle.com/damienbeneschi/krakow-ta-restaurans-data-raw
 
-Motivation
+Motivation:
 This project focusses on the "TripAdvisor Restaurants Info for 31 Euro-Cities"-dataset and does several analysis on restaurant- and rating-differences between 31 European cities. It specifically asks and answers the following 3 Research Questions (RQ):
 RQ1: Are there differences in average ratings and number of ratings between cities?
 RQ2: Are there more vegetarian-friendly cities and if so, are they locally concentrated?
@@ -13,7 +13,7 @@ Tools and libraries used:
 - Pandas
 - Numpy
 
-Files
+Files:
 - 20190909_TA_Restaurants_V1.html: Jupyter Notebooks as html
 - 20190909_TA_Restaurants_V1.ipynb Original Jupyter Notebooks file
 
