@@ -9,10 +9,10 @@ Specifically, the this project asks and answers the following 3 Research Questio
 #### RQ3: Is local cuisine rated better than foreign cusine and if so, is there a difference between cities?
 
 ## Tools and libraries used:
-- Jupyter Notebooks
-- Python 3
-- Pandas
-- Numpy
+- Jupyter Notebooks: https://jupyter.org
+- Python 3: https://www.python.org
+- Pandas: https://pandas.pydata.org
+- Numpy: https://numpy.org
 
 ## Files:
 - 20190909_TA_Restaurants_V1.html: Jupyter Notebook as html, can be read with a regular browser.
