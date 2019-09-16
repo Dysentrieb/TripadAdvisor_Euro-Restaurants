@@ -13122,9 +13122,30 @@ div#notebook {
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="1.:-Business-Understanding-according-to-CRISP-DM">1.: Business Understanding according to CRISP-DM<a class="anchor-link" href="#1.:-Business-Understanding-according-to-CRISP-DM">&#182;</a></h2><p>I was in south-western Poland recently and while searching for a good place to eat on Google Maps I noticed, that there were a lot of restaurants that had really good ratings and reviews in the 4+ region, in cities as well as at the countryside. This made me thinking, because in my hometown Munich there is also many great places, but also a lot that are in not-so-good-region around 3 stars. In general, ratings seemed to be better there compared to what I know. So I thought, maybe people just rate more mildly there. Then I had my first lunch at one of those 4+ places and not only the staff was so friendly and the food looked really nicely, it also tasted amazing at a decent pricetag. Okay, I was lucky I thought. On the evening of the same day I tried another place and had the same great experience.</p>
+<p>I had even more great eats. So is the quality of the polish restaurants on average better than the quality of the bavarian ones? Subjectively… Yes, it seemed so. But what does data science say? Are there differences in average ratings and number of ratings between regions? To answer this question, I used the TripAdvisor Restaurants Info for 31 Euro-Cities from Kaggle. This dataset contains the TripAdvisor reviews and ratings for 111927 restaurants in 31 European cities.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Problem-Definition-/-Research-Questions:">Problem Definition / Research Questions:<a class="anchor-link" href="#Problem-Definition-/-Research-Questions:">&#182;</a></h2><ul>
+<li>RQ 1: Are there differences in average ratings and number of ratings between cities?</li>
+<li>RQ 2: Are there more vegetarian-friendly cities and if so, are they locally concentrated?</li>
+<li>RQ 3: Is local cuisine rated better than foreign cusine and if so, is there a difference between cities?</li>
+</ul>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import Statements</span>
@@ -13140,7 +13161,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load in dataset</span>
@@ -13153,9 +13174,17 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.:-Data-Understanding-according-to-CRISP-DM">2.: Data Understanding according to CRISP-DM<a class="anchor-link" href="#2.:-Data-Understanding-according-to-CRISP-DM">&#182;</a></h2><p>In the following, we have a look at the raw data of the dataset.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Having a first look at the data</span>
@@ -13173,7 +13202,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[3]:</div>
+    <div class="prompt output_prompt">Out[4]:</div>
 
 
 
@@ -13293,7 +13322,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_raw</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -13309,7 +13338,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[4]:</div>
+    <div class="prompt output_prompt">Out[5]:</div>
 
 
 
@@ -13408,7 +13437,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Which cities are included in the dataset?</span>
@@ -13427,7 +13456,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[5]:</div>
+    <div class="prompt output_prompt">Out[6]:</div>
 
 
 
@@ -13449,7 +13478,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Manually add the name of the local cuisines into an array (needed for RQ3)</span>
@@ -13472,13 +13501,20 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Filter for Munich data and have a first look.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Function to return data for a specific city</span>
 
-<span class="n">data_raw_munich</span> <span class="o">=</span> <span class="n">data_raw</span><span class="p">[(</span><span class="n">data_raw</span><span class="o">.</span><span class="n">City</span> <span class="o">==</span> <span class="s2">&quot;Munich&quot;</span><span class="p">)]</span>
-<span class="n">data_raw_munich</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">getRawData</span><span class="p">(</span><span class="n">city</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Returns the data for a specific city, which is given to the function via the city argument.&#39;&#39;&#39;</span>
+    <span class="n">data_raw_city</span> <span class="o">=</span> <span class="n">data_raw</span><span class="p">[(</span><span class="n">data_raw</span><span class="o">.</span><span class="n">City</span> <span class="o">==</span> <span class="s2">&quot;Munich&quot;</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">data_raw_city</span>
+
+<span class="c1"># Filter for Munich data and have a first look</span>
+<span class="n">city</span> <span class="o">=</span> <span class="s2">&quot;Munich&quot;</span>
+<span class="n">data_raw_city</span> <span class="o">=</span> <span class="n">getRawData</span><span class="p">(</span><span class="n">city</span><span class="p">)</span>
+<span class="n">data_raw_city</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13491,7 +13527,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[7]:</div>
+    <div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -13681,10 +13717,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_raw_munich</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_raw_city</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13697,7 +13733,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[8]:</div>
+    <div class="prompt output_prompt">Out[9]:</div>
 
 
 
@@ -13887,10 +13923,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_raw_munich</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_raw_city</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13903,7 +13939,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[9]:</div>
+    <div class="prompt output_prompt">Out[10]:</div>
 
 
 
@@ -14003,11 +14039,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Research-Questions:">Research Questions:<a class="anchor-link" href="#Research-Questions:">&#182;</a></h2><ul>
-<li>RQ 1: Are there differences in average ratings and number of ratings between cities?</li>
-<li>RQ 2: Are there more vegetarian-friendly cities and if so, are they locally concentrated?</li>
-<li>RQ 3: Is local cuisine rated better than foreign cusine and if so, is there a difference between cities?</li>
-</ul>
+<h3 id="Dealing-with-missing-data:">Dealing with missing data:<a class="anchor-link" href="#Dealing-with-missing-data:">&#182;</a></h3><p>It can be seen, that some restaurants, especially the last ones, don't have any Ranking, Rating, Price Ranges or reviews. How to deal with that data? I have chosen to ignore those restaurants in the relevant questions. If, for example, the average rating of a cities restaurant is needed, I only use that restaurants, that actually have a rating. The other restaurants without rating are ignored.</p>
 
 </div>
 </div>
@@ -14015,7 +14047,8 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Calculate-the-data-for-RQ-1---3">Calculate the data for RQ 1 - 3<a class="anchor-link" href="#Calculate-the-data-for-RQ-1---3">&#182;</a></h3>
+<h2 id="3.-and-4.:-Data-Preparation-and-Modeling-according-to-CRISP-DM">3. and 4.: Data Preparation and Modeling according to CRISP-DM<a class="anchor-link" href="#3.-and-4.:-Data-Preparation-and-Modeling-according-to-CRISP-DM">&#182;</a></h2><h3 id="Calculate-the-data-for-RQ-1---3">Calculate the data for RQ 1 - 3<a class="anchor-link" href="#Calculate-the-data-for-RQ-1---3">&#182;</a></h3><p>In the following code, the data is first prepared by only selecting relevant and non-NaN data. Afterwards, data is modelled by calculating the relevant statistical numbers.</p>
+
 </div>
 </div>
 </div>
@@ -14060,6 +14093,7 @@ div#notebook {
     <span class="n">rating_local</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">rating_non_local</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">data_1city_stl_non_Nan</span> <span class="o">=</span> <span class="n">data_1city</span><span class="p">[</span><span class="n">data_1city</span><span class="p">[</span><span class="s1">&#39;Cuisine Style&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()]</span>
+    
     <span class="c1"># Iterate through every restaurant and check if they offer vegetarian/vegan food.</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data_1city_stl_non_Nan</span><span class="p">)):</span>
         <span class="n">veg_true</span> <span class="o">=</span> <span class="mi">0</span>
@@ -14641,6 +14675,14 @@ div#notebook {
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="5.:-Evaluate-the-Results-according-to-CRISP-DM">5.: Evaluate the Results according to CRISP-DM<a class="anchor-link" href="#5.:-Evaluate-the-Results-according-to-CRISP-DM">&#182;</a></h2><p>In the following, for every research questions relevant plots and statistical numbers are plotted to interpret the results. Afterward the plots, results are discussed.</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
